@@ -1,18 +1,43 @@
 package GraWStatkiUproszczona_Strona130;
 
-import java.util.Random;
-import java.util.Scanner;
+import java.io.IOException;
 
-public class Portal {
 
-    public static void main(String[] args) {
+public class ProstyPortalGra {
+
+    public static void main(String[] args) throws IOException {
         int ilośćRuchówGracza = 0;
 
-        Random polePolozeniaPortalu = new Random();
-        System.out.println(polePolozeniaPortalu.nextInt(4));
+        PomocnikGry pomocnik = new PomocnikGry();
+        ProstyPortal portal = new ProstyPortal();
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Wprowadz liczbę:");
-        int strzalUżytkownika = scanner.nextInt();
+        int liczbaLosowa = (int) (Math.random() * 5);
+
+        int[] polozenie = {liczbaLosowa, liczbaLosowa + 1, liczbaLosowa + 2};
+        portal.setPolaPolozenia(polozenie);
+        boolean czyIstnieje = true;
+
+        while (czyIstnieje == true) {
+            String pole = pomocnik.pobierzDaneWejsciowe("Podaj liczbę");
+
+            String wynik = portal.sprawdz(pole);
+
+            ilośćRuchówGracza++;
+
+            if (wynik.equals("zatopiony")) {
+                czyIstnieje = false;
+                System.out.println(ilośćRuchówGracza + " ruchów");
+            }
+        }
     }
+
+    private static int[] getInts(int polePolozeniaPoczatkuPortalu) {
+        int[] portalWielkosc3 = new int[3];
+        portalWielkosc3[0] = polePolozeniaPoczatkuPortalu;
+        portalWielkosc3[1] = polePolozeniaPoczatkuPortalu + 1;
+        portalWielkosc3[2] = polePolozeniaPoczatkuPortalu + 2;
+        return portalWielkosc3;
+    }
+
+
 }

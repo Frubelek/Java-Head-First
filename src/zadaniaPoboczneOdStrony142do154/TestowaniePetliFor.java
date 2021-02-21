@@ -1,4 +1,4 @@
-package zadaniaPoboczneOdStrony142;
+package zadaniaPoboczneOdStrony142do154;
 
 public class TestowaniePetliFor {
 

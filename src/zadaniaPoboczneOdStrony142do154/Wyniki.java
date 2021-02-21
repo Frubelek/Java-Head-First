@@ -1,4 +1,4 @@
-package zadaniaPoboczneOdStrony142;
+package zadaniaPoboczneOdStrony142do154;
 
 public class Wyniki {
 
@@ -6,6 +6,7 @@ public class Wyniki {
 
         Wyniki w = new Wyniki();
         w.doDziela();
+
     }
 
     private void doDziela() {
